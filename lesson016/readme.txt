@@ -1,0 +1,3 @@
+表的join：
+merge和join
+对应到excel操作的vlook函数，也就是说vlookup函数可以作为excel的维度扩充工具

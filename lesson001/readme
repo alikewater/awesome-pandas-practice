@@ -1,0 +1,5 @@
+创建文件
+1.创建dataframe
+    1.1 通过python list创建，二维list
+    1.2 通过 dict创建 key:value key为列名，value 为列的值
+    1.3 通过numpy array创建,和2.将datarame写到excel文件类似
