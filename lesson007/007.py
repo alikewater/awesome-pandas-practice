@@ -10,5 +10,7 @@ print(products)
 
 products.sort_values(by=['Worthy','Price'],inplace=True,ascending=[True,False])
 
+products = products.reset_index(drop=True)
+
 print(products)
 
