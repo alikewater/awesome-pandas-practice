@@ -54,25 +54,29 @@ def gen_dis_dict(total,dis_percent):
     return dict
 
 
+def gen_from_percent_dis(total, dis_percent):
+    dict = gen_dis_dict(total, dis_percent)
+    res = gen_dis(dict)
+    res = np.concatenate(sex)
+
+    return res
+
 #中国
 
 #性别生成
 total = 311
 dis_percent ={ 'm':{'low':1,'high':1,'percent':0.12},'f':{'low':2,'high':2,'percent':0.88}}
-dict = gen_dis_dict(total,dis_percent)
 
-sex = gen_dis(dict)
-sex = np.concatenate(sex)
+sex = gen_from_percent_dis(total,dis_percent)
+np.random.shuffle(sex)
 
 #年龄生成
 dis_percent ={ '50-59': {'low': 50, 'high': 59, 'percent': 0.09},'20-24':{'low':20,'high':24,'percent':0.07},
                '25-29':{'low':25,'high':29,'percent':0.11},
                '30-34':{'low':30,'high':34,'percent':0.16},'35-39':{'low':35,'high':39,'percent':0.25},
                '40-49': {'low': 40, 'high': 49, 'percent': 0.32}}
-dict = gen_dis_dict(total,dis_percent)
 
-age = gen_dis(dict)
-age = np.concatenate(age)
+age = gen_from_percent_dis(total,dis_percent)
 np.random.shuffle(age)
 
 #教育
@@ -80,12 +84,9 @@ dis_percent ={ '13': {'low': 13, 'high': 13, 'percent': 0}, '14': {'low': 14, 'h
                 '0-9':{'low':0,'high':9,'percent':0.77},'10':{'low':10,'high':10,'percent':0.08},
                '11':{'low':11,'high':11,'percent':0.13},'12':{'low':12,'high':12,'percent':0.02}
                }
-dict = gen_dis_dict(total,dis_percent)
 
-edu = gen_dis(dict)
-edu = np.concatenate(edu)
+edu = gen_from_percent_dis(total,dis_percent)
 np.random.shuffle(edu)
-
 
 #职业
 
@@ -93,10 +94,8 @@ dis_percent ={ 'Unskilled': {'low': 1, 'high': 1, 'percent': 0.94},
                'General': {'low': 2, 'high':2, 'percent': 0},
                 'Vocationally':{'low':3,'high':3,'percent':0.06}
                }
-dict = gen_dis_dict(total,dis_percent)
 
-ocu = gen_dis(dict)
-ocu = np.concatenate(ocu)
+ocu = gen_from_percent_dis(total,dis_percent)
 np.random.shuffle(ocu)
 
 overall = np.concatenate([sex,age,edu,ocu],axis=1)
@@ -115,22 +114,16 @@ china_people.to_excel('china_people.xls')
 #性别生成
 total = 307
 dis_percent ={ 'm':{'low':1,'high':1,'percent':0.12},'f':{'low':2,'high':2,'percent':0.88}}
-dict = gen_dis_dict(total,dis_percent)
 
-sex = gen_dis(dict)
-sex = np.concatenate(sex)
-#乱序
-np.random.shuffle(sex)
+age = gen_from_percent_dis(total,dis_percent)
+np.random.shuffle(age)
 
 #年龄生成
 dis_percent ={ '50-59': {'low': 50, 'high': 59, 'percent': 0.03},'20-24':{'low':20,'high':24,'percent':0.24},
                '25-29':{'low':25,'high':29,'percent':0.37},
                '30-34':{'low':30,'high':34,'percent':0.13},'35-39':{'low':35,'high':39,'percent':0.17},
                '40-49': {'low': 40, 'high': 49, 'percent': 0.06}}
-dict = gen_dis_dict(total,dis_percent)
-
-age = gen_dis(dict)
-age = np.concatenate(age)
+age = gen_from_percent_dis(total,dis_percent)
 np.random.shuffle(age)
 
 #教育
@@ -138,10 +131,7 @@ dis_percent ={ '13': {'low': 13, 'high': 13, 'percent': 0.01}, '14': {'low': 14,
                 '0-9':{'low':0,'high':9,'percent':0.53},'10':{'low':10,'high':10,'percent':0.05},
                '11':{'low':11,'high':11,'percent':0.06},'12':{'low':12,'high':12,'percent':0.34}
                }
-dict = gen_dis_dict(total,dis_percent)
-
-edu = gen_dis(dict)
-edu = np.concatenate(edu)
+edu = gen_from_percent_dis(total,dis_percent)
 np.random.shuffle(edu)
 
 
@@ -151,10 +141,7 @@ dis_percent ={ 'Unskilled': {'low': 1, 'high': 1, 'percent': 0.97},
                'General': {'low': 2, 'high':2, 'percent': 0.01},
                 'Vocationally':{'low':3,'high':3,'percent':0.02}
                }
-dict = gen_dis_dict(total,dis_percent)
-
-ocu = gen_dis(dict)
-ocu = np.concatenate(ocu)
+ocu = gen_from_percent_dis(total,dis_percent)
 np.random.shuffle(ocu)
 
 overall = np.concatenate([sex,age,edu,ocu],axis=1)
